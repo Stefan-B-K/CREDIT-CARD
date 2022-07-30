@@ -1,0 +1,9 @@
+.column {
+    margin: 5px 5px 0 5px;
+    padding-bottom: 0;
+    padding-top: 10px;
+}
+
+.columns {
+    width: 90vw;
+}

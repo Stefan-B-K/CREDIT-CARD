@@ -2,7 +2,12 @@ import { FormControl } from "@angular/forms";
 
 export class CardNumberControl extends FormControl {
 
-    override setValue (value: string, options: any) {
+    override setValue (value: string | null, options: any) {
+
+        if (!value) {
+            super.setValue('', { ...options, emitModelToViewChange: true })
+            return
+        }
 
         const cardRegex = /^\d{0,4}(\-|)\d{0,4}(\-|)\d{0,4}(\-|)\d{0,4}$/gi
 

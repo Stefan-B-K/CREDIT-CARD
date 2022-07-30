@@ -1,26 +1,55 @@
-<form [formGroup]="cardFrom" (ngSubmit)="onSubmit()">
-    <app-input
-        [control]="cardFrom.controls.name"
-        label="Cardholder names"
-        placeholder="FirstName LastName"
-    ></app-input>
-    <app-input
-        [control]="cardFrom.controls.cardNumber"
-        label="Credit Card Number"
-        placeholder="####-####-####-####"
-    ></app-input>
-    <app-input
-        [control]="cardFrom.controls.expiration"
-        label="Expiration date"
-        placeholder="MM/YY"
-    ></app-input>
-    <app-input
-        [control]="cardFrom.controls.securityCode"
-        label="Security Code"
-        placeholder="###"
-    ></app-input>
-    <button [disabled]="cardFrom.invalid" class="button">Submit</button>
-</form>
+<div class="columns">
+    <div class="column  is-three-fifths">
+        <app-card-face
+            [name]="cardFrom.controls.name.value"
+            [cardNumber]="cardFrom.controls.cardNumber.value"
+            [expiration]="cardFrom.controls.expiration.value"
+        ></app-card-face>
+    </div>
+    <div class="column">
+        <form [formGroup]="cardFrom" (ngSubmit)="submitForm()">
+            <app-input
+                [control]="cardFrom.controls.name"
+                label="Cardholder names"
+                placeholder="FirstName LastName"
+            ></app-input>
+            <app-input
+                [control]="cardFrom.controls.cardNumber"
+                label="Credit Card Number"
+                placeholder="####-####-####-####"
+            ></app-input>
+
+
+                    <app-input
+                        [control]="cardFrom.controls.expiration"
+                        label="Expiration date"
+                        placeholder="MM/YY"
+                    ></app-input>
+
+
+                    <app-input
+                        [control]="cardFrom.controls.securityCode"
+                        label="Security Code"
+                        placeholder="###"
+                    ></app-input>
+
+
+            <div class="buttons">
+                <button
+                    [disabled]="cardFrom.invalid"
+                    class="button is-primary"
+                >Submit
+                </button>
+                <button
+                    (click)="resetForm()"
+                    type="button"
+                    class="button is-warning"
+                >Reset Form
+                </button>
+            </div>
+        </form>
+    </div>
+</div>
 
 <!--<br>-->
 <!--<div>Form Contents: {{ cardFrom.value | json }}</div>-->

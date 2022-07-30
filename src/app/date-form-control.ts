@@ -2,7 +2,12 @@ import { FormControl } from "@angular/forms";
 
 export class DateFormControl extends FormControl {
 
-    override setValue (value: string, options: any) {
+    override setValue (value: string | null, options: any) {
+
+        if (!value) {
+            super.setValue('', { ...options, emitModelToViewChange: true })
+            return
+        }
 
         const dateRegex = /^0{1}[^\d]{1}$|^1{1}[^[012]{1}$|^[^01]+$/gi
 

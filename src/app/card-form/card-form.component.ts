@@ -1,8 +1,8 @@
 import { Component } from '@angular/core';
 import { FormGroup, FormControl, Validators } from "@angular/forms";
-import { DateFormControl } from "../DateFormControl";
-import { CardNumberControl } from "../CardNumberControl";
-import { SecurityCodeControl } from "../SecurityCodeControl";
+import { DateFormControl } from "../date-form-control";
+import { CardNumberControl } from "../card-number-control";
+import { SecurityCodeControl } from "../security-code-control";
 
 @Component({
     selector: 'app-card-form',
@@ -31,7 +31,11 @@ export class CardFormComponent {
         ])
     })
 
-    onSubmit() {
+    submitForm () {
         alert('****** SUBMITTED *******')
+    }
+
+    resetForm () {
+        this.cardFrom.reset()
     }
 }

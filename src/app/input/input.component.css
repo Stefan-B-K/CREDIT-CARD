@@ -1,0 +1,13 @@
+
+.button {
+    margin: 20px 30px 20px 0;
+}
+
+.field {
+    margin-bottom: 0.75rem;
+}
+
+.column.input {
+  width: 30%;
+}
+
