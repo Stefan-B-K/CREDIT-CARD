@@ -1,0 +1,32 @@
+<form [formGroup]="cardFrom" (ngSubmit)="onSubmit()">
+    <app-input
+        [control]="cardFrom.controls.name"
+        label="Cardholder names"
+        placeholder="FirstName LastName"
+    ></app-input>
+    <app-input
+        [control]="cardFrom.controls.cardNumber"
+        label="Credit Card Number"
+        placeholder="####-####-####-####"
+    ></app-input>
+    <app-input
+        [control]="cardFrom.controls.expiration"
+        label="Expiration date"
+        placeholder="MM/YY"
+    ></app-input>
+    <app-input
+        [control]="cardFrom.controls.securityCode"
+        label="Security Code"
+        placeholder="###"
+    ></app-input>
+    <button [disabled]="cardFrom.invalid" class="button">Submit</button>
+</form>
+
+<!--<br>-->
+<!--<div>Form Contents: {{ cardFrom.value | json }}</div>-->
+<!--<div>"Name" field Errors: {{ cardFrom.controls.name.errors | json }}</div>-->
+<!--<div>"Card Number" field Errors: {{ cardFrom.controls.cardNumber.errors | json }}</div>-->
+<!--<div>"Expiration" field Errors: {{ cardFrom.controls.expiration.errors | json }}</div>-->
+<!--<div>"Security Code" field Errors: {{ cardFrom.controls.securityCode.errors | json }}</div>-->
+<!--<br>-->
+<!--<div>Form is valid: {{ cardFrom.valid }}</div>-->
